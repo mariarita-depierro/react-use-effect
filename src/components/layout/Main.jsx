@@ -1,26 +1,19 @@
+import NotepadSection from "../sections/NotepadSection";
+
 export default function Main() {
   return (
     <main className="container">
       <div className="row g-3">
         {/* <!-- Prima riga --> */}
-        <div className="col-md-4">Ex.1</div>
+        <div className="col-md-4">
+          <NotepadSection />
+        </div>
         <div className="col-md-4">Ex.2</div>
         <div className="col-md-4">Ex.3</div>
       </div>
     </main>
   );
 }
-
-/* Esercizio 1 – Blocco note persistente
-
-Creare un componente NotePad con una <textarea>.
-Il testo digitato viene salvato in localStorage a ogni modifica.
-Al ricaricamento della pagina il testo viene recuperato da localStorage.
-Sotto la textarea viene mostrato il numero di caratteri.
-Il titolo della tab del browser mostra X caratteri.
-
-Bonus: un pulsante "Svuota" che cancella testo e chiave dal localStorage.
- */
 
 /* Esercizio 2 – Theme switcher (light/dark)
 
