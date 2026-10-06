@@ -13,7 +13,7 @@ import { useState, useEffect } from "react";
 
 export default function NotepadSection() {
   const [note, setNote] = useState(() => {
-    const savedNote = JSON.parse(localStorage.getItem("storage-note"));
+    const savedNote = localStorage.getItem("storage-note");
     return savedNote ? savedNote : "";
   });
 
@@ -21,9 +21,20 @@ export default function NotepadSection() {
     document.title = `${note.length} caratteri`;
 
     note !== ""
-      ? localStorage.setItem("storage-note", JSON.stringify(note))
+      ? localStorage.setItem("storage-note", note)
       : localStorage.removeItem("storage-note");
   }, [note]);
+
+  //Gestione mounting/unmounting
+  useEffect(() => {
+    console.log("NotepadSection is mounted!");
+
+    //cleanup function
+    return () => {
+      console.log("NotepadSection is unmounted!");
+      localStorage.setItem("storage-note", "");
+    };
+  }, []);
 
   function handleInputChange(e) {
     setNote(e.target.value);
