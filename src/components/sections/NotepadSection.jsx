@@ -8,6 +8,7 @@ Il titolo della tab del browser mostra X caratteri.
 
 Bonus: un pulsante "Svuota" che cancella testo e chiave dal localStorage.*/
 
+import { NotebookPen } from "lucide-react";
 import { useState, useEffect } from "react";
 
 export default function NotepadSection() {
@@ -33,7 +34,9 @@ export default function NotepadSection() {
 
   return (
     <section className="bg-success p-4 text-white rounded">
-      <h2>NotePad</h2>
+      <h2>
+        NotePad <NotebookPen size={25} />
+      </h2>
       <textarea
         className="form-control"
         name="notepad"

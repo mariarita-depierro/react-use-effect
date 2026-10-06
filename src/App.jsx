@@ -3,10 +3,10 @@ import Main from "./components/layout/Main";
 
 function App() {
   return (
-    <>
+    <div className="bg-secondary text-light py-4">
       <Header />
       <Main />
-    </>
+    </div>
   );
 }
 

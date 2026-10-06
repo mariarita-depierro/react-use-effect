@@ -1,6 +1,10 @@
+import { useState } from "react";
 import NotepadSection from "../sections/NotepadSection";
+import ThemeToggleSection from "../sections/ThemeToggleSection";
 
 export default function Main() {
+  const [isVisible] = useState(true);
+
   return (
     <main className="container">
       <div className="row g-3">
@@ -8,21 +12,17 @@ export default function Main() {
         <div className="col-md-4">
           <NotepadSection />
         </div>
-        <div className="col-md-4">Ex.2</div>
+        {/* Conditional rendering per la visibilità del componente */}
+        {isVisible && (
+          <div className="col-md-4">
+            <ThemeToggleSection />
+          </div>
+        )}
         <div className="col-md-4">Ex.3</div>
       </div>
     </main>
   );
 }
-
-/* Esercizio 2 – Theme switcher (light/dark)
-
-Creare un componente ThemeToggle con un pulsante che alterna tema chiaro e scuro.
-Lo stato theme viene salvato in localStorage e recuperato al caricamento.
-Un useEffect applica una classe al document per light e dark mode
-Il testo del pulsante cambia in base al tema attivo.
-
-Bonus: gestire la visibilità del componente con conditional rendering e aggiungere una cleanup function di useEffect() che ripristina il tema light quando il componente viene smontato. Verificare il comportamento. */
 
 /* Esercizio 3 – Window size tracker
 
